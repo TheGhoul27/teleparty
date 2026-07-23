@@ -1,0 +1,31 @@
+{
+  "name": "watchshare",
+  "private": true,
+  "version": "0.1.0",
+  "description": "WatchShare - private rooms for watching a manually shared browser tab together over WebRTC.",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,signaling -c cyan,magenta \"npm run dev -w apps/web\" \"npm run dev -w apps/signaling\"",
+    "dev:https": "concurrently -n web,signaling -c cyan,magenta \"npm run dev:https -w apps/web\" \"npm run dev -w apps/signaling\"",
+    "build": "npm run build -w packages/shared --if-present && npm run build -w apps/signaling && npm run build -w apps/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e -w apps/web"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.20.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

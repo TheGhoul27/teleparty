@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-950: #0a0d14;
+  --color-surface-900: #10141f;
+  --color-surface-800: #181e2d;
+  --color-surface-700: #232b40;
+  --color-accent-500: #6366f1;
+  --color-accent-400: #818cf8;
+  --color-accent-300: #a5b4fc;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--color-surface-950);
+  color: #e5e7eb;
+}
+
+/* Visible focus ring for keyboard navigation. */
+:focus-visible {
+  outline: 2px solid var(--color-accent-400);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
